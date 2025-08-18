@@ -13,6 +13,39 @@ hour = 60*60
 day = 24*hour
 MPa = 1e6
 
+def read_mesh():
+	if "mesh_on" not in st.session_state:
+		mesh_file = os.path.join("examples", "mesh_on.html")
+		with open(mesh_file, "r", encoding="utf-8") as file:
+			html_content = file.read()
+			st.session_state["mesh_on"] = {
+				"data" : html_content,
+				"name" : file.name
+			}
+	if "mesh_off" not in st.session_state:
+		mesh_file = os.path.join("examples", "mesh_off.html")
+		with open(mesh_file, "r", encoding="utf-8") as file:
+			html_content = file.read()
+			st.session_state["mesh_off"] = {
+				"data" : html_content,
+				"name" : file.name
+			}
+
+def read_csv_file(field_name):
+	if field_name not in st.session_state:
+		file = os.path.join("examples", f"{field_name}.csv")
+		st.session_state[field_name] = {
+			"data" : pd.read_csv(file, index_col=0),
+			"name" : field_name
+		}
+
+read_csv_file("cavern_displacements")
+read_csv_file("subsidence")
+read_csv_file("gas_pressure")
+read_csv_file("convergence")
+read_csv_file("stress_path")
+read_mesh()
+
 def show_geometry():
 	col11.subheader(f"Geometry view")
 	col1_11, col2_12 = col11.columns([1,4])

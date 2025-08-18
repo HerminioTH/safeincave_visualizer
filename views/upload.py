@@ -60,6 +60,8 @@ def read_gas_pressure(file):
 
 
 
+
+
 def upload_all_at_once():
 	uploaded_files = st.file_uploader("Upload results files", type=["html", "csv"], accept_multiple_files=True)
 	if uploaded_files is not None:
@@ -94,6 +96,6 @@ st.title("Upload results files")
 
 upload_all_at_once()
 
-# upload_mesh()
-# upload_displacement()
 check_uploaded_files()
+
+

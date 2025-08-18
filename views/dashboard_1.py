@@ -161,7 +161,7 @@ def plot_cavern():
 def plot_stress_path():
 	col13.subheader(f"Stress path")
 	if "stress_path" not in st.session_state:
-		col12.warning("Upload stress_path.csv file.")
+		col13.warning("Upload stress_path.csv file.")
 	else:
 		if "selected_point" in st.session_state:
 			xp = st.session_state["selected_point"][0]

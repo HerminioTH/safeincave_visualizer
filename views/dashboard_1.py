@@ -118,7 +118,7 @@ def plot_gas_pressure():
 
 		fig_conv = px.line()
 		fig_conv.add_scatter(x=time_list/day, y=p_gas/MPa, mode="lines", line=dict(color="#FF57AE"), showlegend=False)
-		fig_conv.update_layout(xaxis_title="Time (days)", yaxis_title="Volumetric loss (%)")
+		fig_conv.update_layout(xaxis_title="Time (days)", yaxis_title="Gas pressure (MPa)")
 
 		time_id = st.session_state["Time"]["index"]
 		marker_props = dict(color='white', size=8, symbol='0', line=dict(width=2, color='black'))
